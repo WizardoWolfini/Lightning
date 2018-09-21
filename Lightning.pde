@@ -68,13 +68,10 @@ int yd = ly1 - sy;
 double distance = xd * xd + yd * yd;
 distance = Math.sqrt(distance);
 double time = -distance/15;
-if(time > -1 && time < 1){
-  time = 1;
-}
-double xv = (int)xd/(int)time;
-double yv = (int)yd/(int)time;
-lx2 = lx1 + (int)(Math.random()*xv -1/2*xv);
-ly2 = ly1 + (int)(Math.random()*yv-1/2*xv);
+double xv = xd/time;
+double yv = yd/time;
+lx2 = lx1 + (int)(Math.random()*xv);
+ly2 = ly1 + (int)(Math.random()*yv);
 stroke(255,0,0);
 line(lx1,ly1,lx2,ly2);
 if(lx2 >= sx - 5 && ly2 >= sy - 5 && lx2 <= sx + 5 && ly2 <= sy + 5){
