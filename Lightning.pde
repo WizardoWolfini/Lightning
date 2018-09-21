@@ -68,8 +68,11 @@ int yd = ly1 - sy;
 double distance = xd * xd + yd * yd;
 distance = Math.sqrt(distance);
 double time = -distance/15;
-double xv = xd/time;
-double yv = yd/time;
+if(time > -1 && time < 1){
+  time = 1;
+}
+double xv = (int)xd/(int)time;
+double yv = (int)yd/(int)time;
 lx2 = lx1 + (int)(Math.random()*xv -1/2*xv);
 ly2 = ly1 + (int)(Math.random()*yv-1/2*xv);
 stroke(255,0,0);
@@ -120,7 +123,7 @@ void createspaceship(){
 stroke(0);
 fill(200);
 rect(sx,sy,30,10);
-float hwidth = (health * 28)/maxhealth;
+float hwidth = (int)(health * 28)/(int)maxhealth;
 noStroke();
 fill(255);
 rect(sx + 2, sy + 14, 28,4);
